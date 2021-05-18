@@ -29,8 +29,8 @@ class CallbackController {
     @Consumes(MediaType.APPLICATION_JSON)
     boolean checkResults(JennerRequest jennerRequest) {
         log.info("In callback: ${jennerRequest}")
-        scheduleService.delete(jennerRequest.jobName)
-
+        def result = scheduleService.delete(jennerRequest.jobName)
+        log.info("Successfully deleted schedule?: ${result}")
         checkXmlContent(jennerRequest)
         updateTestSuiteMetadata(jennerRequest.testSuiteId)
     }
