@@ -6,6 +6,7 @@ import com.trevorism.https.DefaultSecureHttpClient
 import com.trevorism.https.SecureHttpClient
 import com.trevorism.schedule.DefaultScheduleService
 import com.trevorism.schedule.ScheduleService
+import com.trevorism.schedule.factory.DefaultScheduledTaskFactory
 import com.trevorism.schedule.factory.EndpointSpec
 import com.trevorism.schedule.factory.ScheduledTaskFactory
 import com.trevorism.schedule.model.HttpMethod
@@ -42,7 +43,7 @@ class InvocationController {
         client.post(createCinvokeUrl(jennerRequest), "{}")
 
         String callbackUrl = "${uriInfo.baseUri}callback/"
-        ScheduledTaskFactory factory = new DefaultScheduleService()
+        ScheduledTaskFactory factory = new DefaultScheduledTaskFactory()
         Gson gson = new Gson()
         EndpointSpec endpointSpec = new EndpointSpec(callbackUrl, HttpMethod.POST, gson.toJson(jennerRequest))
         ScheduledTask scheduledTask = factory.createImmediateTask(jennerRequest.jobName, Instant.now().plus(60 * 10).toDate(), endpointSpec)
