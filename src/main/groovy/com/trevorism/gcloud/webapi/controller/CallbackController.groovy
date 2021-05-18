@@ -24,7 +24,7 @@ class CallbackController {
 
     @ApiOperation(value = "Check the results **Secure")
     @POST
-    @Secure(Roles.SYSTEM)
+    @Secure(value = Roles.SYSTEM, allowInternal = true)
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     boolean checkResults(JennerRequest jennerRequest) {
