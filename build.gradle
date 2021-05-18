@@ -74,3 +74,12 @@ task deliver {
     dependsOn("build","appengineDeploy")
     appengineDeploy.mustRunAfter("check")
 }
+
+processResources{
+    doLast{
+        copy{
+            from "${System.getProperty("user.home")}/${project.name}/secrets.properties"
+            into "build/resources/main"
+        }
+    }
+}
