@@ -50,6 +50,8 @@ dependencies {
     implementation 'com.trevorism:schedule-client:0.2.0'
     implementation 'com.trevorism:secure-http-utils:0.7.0'
 
+    implementation group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
+
     acceptanceImplementation 'io.cucumber:cucumber-groovy:4.7.1'
     acceptanceImplementation 'com.trevorism:http-utils:1.1.0'
 
