@@ -49,6 +49,7 @@ dependencies {
 
     implementation 'com.trevorism:schedule-client:0.2.0'
     implementation 'com.trevorism:secure-http-utils:0.7.0'
+    implementation 'com.trevorism:datastore-client:2.3.0'
 
     implementation group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
 
