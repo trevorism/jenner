@@ -31,7 +31,7 @@ import java.util.logging.Logger
 class InvocationController {
 
     private static final Logger log = Logger.getLogger(InvocationController.class.name)
-    private static SecureHttpClient client = new DefaultSecureHttpClient()
+    private SecureHttpClient client = new DefaultSecureHttpClient()
     private ScheduleService scheduleService = new DefaultScheduleService()
 
     @ApiOperation(value = "Run a job **Secure")
