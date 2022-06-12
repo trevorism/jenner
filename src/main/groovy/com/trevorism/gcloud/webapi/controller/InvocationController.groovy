@@ -1,5 +1,6 @@
 package com.trevorism.gcloud.webapi.controller
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators
 import com.google.gson.Gson
 import com.trevorism.gcloud.webapi.model.JennerRequest
 import com.trevorism.https.DefaultSecureHttpClient
@@ -46,7 +47,7 @@ class InvocationController {
         ScheduledTaskFactory factory = new DefaultScheduledTaskFactory()
         Gson gson = new Gson()
         EndpointSpec endpointSpec = new EndpointSpec(callbackUrl, HttpMethod.POST, gson.toJson(jennerRequest))
-        ScheduledTask scheduledTask = factory.createImmediateTask(jennerRequest.jobName, Instant.now().plus(60 * 10).toDate(), endpointSpec)
+        ScheduledTask scheduledTask = factory.createImmediateTask("${jennerRequest.jobName}-${UUID.randomUUID().toString()}", Instant.now().plus(60 * 10).toDate(), endpointSpec)
 
         log.info("Scheduled Task: ${scheduledTask}")
 
