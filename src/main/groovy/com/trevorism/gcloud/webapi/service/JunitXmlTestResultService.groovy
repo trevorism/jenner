@@ -67,6 +67,7 @@ class JunitXmlTestResultService implements TestResultService {
     TestSuiteDetails updateTestSuiteDetails(String id, TestResult testResult) {
         TestSuiteDetails details = getTestSuiteDetails(id)
         details.lastRunSuccess = testResult.result
+        details.lastRunDate = new Date()
         Map<String, TestMetadata> metadataMap = [:]
         testResult.testCases.each {
             metadataMap.put("${it.classname}::${it.name}".toString(), new TestMetadata(["disabled":false, "shouldFail":false]))
