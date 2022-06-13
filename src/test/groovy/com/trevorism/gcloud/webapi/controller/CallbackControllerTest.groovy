@@ -7,9 +7,9 @@ class CallbackControllerTest {
 
     @Test
     void testCheckResults() {
-        String id = "5927322519601152"
+        String id = "4802279928496128"
         CallbackController callbackController = new CallbackController()
-        //println callbackController.checkResults(new JennerRequest(testSuiteId: id, jobName: "unit-list", type: "unit"))
+        println callbackController.checkResults(new JennerRequest(testSuiteId: id, jobName: "unit-datastore-client", type: "unit"))
     }
 
     @Test

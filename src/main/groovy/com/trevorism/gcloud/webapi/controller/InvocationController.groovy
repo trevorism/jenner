@@ -43,11 +43,11 @@ class InvocationController {
     boolean runJob(@Context UriInfo uriInfo, JennerRequest jennerRequest) {
         client.post(createCinvokeUrl(jennerRequest), "{}")
 
-        String callbackUrl = "${uriInfo.baseUri}callback/"
+        String callbackUrl = "${uriInfo.baseUri}callback"
         ScheduledTaskFactory factory = new DefaultScheduledTaskFactory()
         Gson gson = new Gson()
         EndpointSpec endpointSpec = new EndpointSpec(callbackUrl, HttpMethod.POST, gson.toJson(jennerRequest))
-        ScheduledTask scheduledTask = factory.createImmediateTask("${jennerRequest.jobName}-${UUID.randomUUID().toString()}", Instant.now().plus(60 * 10).toDate(), endpointSpec)
+        ScheduledTask scheduledTask = factory.createImmediateTask(jennerRequest.jobName, Instant.now().plus(60 * 10).toDate(), endpointSpec)
 
         log.info("Scheduled Task: ${scheduledTask}")
 

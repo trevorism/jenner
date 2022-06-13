@@ -7,7 +7,7 @@
 
 Jenkins + Test Runner = Jenner -- Runs and manages jenkins based test runs.
 
-Current version: 0.0.1
+Current version: 0.1.0
 
 Deployed to [Jenner](https://jenner.testing.trevorism.com/)
 

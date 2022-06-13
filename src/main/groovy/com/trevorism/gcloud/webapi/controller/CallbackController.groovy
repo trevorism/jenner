@@ -44,12 +44,12 @@ class CallbackController {
         updateTestSuiteMetadata(jennerRequest.testSuiteId, testResult)
     }
 
-    TestResult checkXmlContent(JennerRequest jennerRequest) {
+    private TestResult checkXmlContent(JennerRequest jennerRequest) {
         TestResult testResult = testResultService.parseUnitTestResult(jennerRequest.jobName)
         return testResult
     }
 
-    boolean updateTestSuiteMetadata(String testSuiteId, TestResult testResult) {
+    private boolean updateTestSuiteMetadata(String testSuiteId, TestResult testResult) {
         testResultService.updateTestSuiteDetails(testSuiteId, testResult)
     }
 }
