@@ -58,10 +58,10 @@ dependencies {
     implementation 'com.trevorism:datastore-client:2.5.0'
     implementation 'com.google.code.gson:gson:2.9.1'
 
-    implementation group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
+    implementation 'net.sourceforge.nekohtml:nekohtml:1.9.22'
 
     acceptanceImplementation 'io.cucumber:cucumber-groovy:4.7.1'
-    acceptanceImplementation 'com.trevorism:http-utils:1.2.0'
+    acceptanceImplementation 'com.trevorism:http-utils:1.4.0'
 
     testImplementation 'junit:junit:4.13.2'
 }
